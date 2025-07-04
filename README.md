@@ -48,6 +48,7 @@ bashnpm run dev
 
 
 Visit http://localhost:3000 and start writing! 🎉
+
 🛠️ Built With
 This project is crafted using modern technologies:
 
