@@ -3,9 +3,7 @@ import {Editor} from '@tinymce/tinymce-react'
 
 function RTE() {
     return (
-        <Editor
-        
-        />
+        <></>
     )
 }
 
