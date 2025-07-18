@@ -1,5 +1,5 @@
 import conf from "../conf/conf";
-import { Client, ID,Databases,Storage,Query } from "appwrite";
+import { Client,ID,Databases,Storage,Query } from "appwrite";
 
 export class Service{
     client = new Client();
@@ -116,8 +116,8 @@ export class Service{
             return false;
         }
     }
-    getFilePreview(fileId){
-        return this.bucket.getFilePreview(
+    getFileView(fileId){
+        return this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
         )
