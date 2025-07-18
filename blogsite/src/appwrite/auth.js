@@ -37,13 +37,13 @@ export class AuthService{
     }
     async getCurrentUser(){
         try {
-            await this.account.get();
+            return await this.account.get();
         } catch (error) {
-            throw error;
+            return null
             
         }
 
-        return null;  //this was done to handle the case when no user is found,like uh were not even able to reach out to the service..and the error which can occur is already handled in the try catch section
+        //return null;  //this was done to handle the case when no user is found,like uh were not even able to reach out to the service..and the error which can occur is already handled in the try catch section
     }
     async logout(){
         try {
