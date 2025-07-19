@@ -1,13 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import {Container,Logo,LogoutBtn} from '../index'
 import {Link} from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import {Sun,Moon} from 'lucide-react'
 
 function Header() {
     const authStatus=useSelector((state)=>state.auth.status)
     const navigate=useNavigate()
     const [hoveredItem, setHoveredItem] = useState(null)
+     const [isDark, setIsDark] = useState(() =>
+    localStorage.getItem("theme") === "dark"
+  );
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (isDark) {
+      root.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      root.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    }
+  }, [isDark]);
 
     const navItems=[
         {
@@ -38,7 +53,7 @@ function Header() {
     ]
 
     return (
-        <header className='sticky top-0 z-50 backdrop-blur-md bg-white/90 shadow-lg border-b border-gray-200/50'>
+        <header className='sticky top-0 z-50 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 shadow-lg border-b border-gray-200/50 dark:border-gray-700'>
             <Container>
                 <nav className='flex items-center py-4'>
                     <div className='mr-6'>
@@ -47,7 +62,7 @@ function Header() {
                             className='flex items-center group transition-all duration-300 hover:scale-105'
                         >
                             <div className='relative overflow-hidden rounded-xl p-1 bg-gradient-to-r from-blue-500 to-purple-600'>
-                                <div className='bg-white rounded-lg p-1'>
+                                <div className='bg-white dark:bg-slate-900 rounded-lg p-1'>
                                     <Logo width='50px' className='transition-transform duration-300 group-hover:rotate-6'/>
                                 </div>
                                 <div className='absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl'></div>
@@ -57,6 +72,20 @@ function Header() {
                             </span>
                         </Link>
                     </div>
+                    {/* Dark mode toggle button styled to match project design */}
+                    <button
+                        onClick={() => setIsDark(!isDark)}
+                        className="relative ml-2 p-0.5 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 shadow-md transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                        aria-label="Toggle dark mode"
+                    >
+                        <div className="bg-white dark:bg-slate-900 rounded-full p-2 flex items-center justify-center">
+                            {isDark ? (
+                                <Sun size={20} className="text-yellow-400 transition-transform duration-300 group-hover:rotate-12" />
+                            ) : (
+                                <Moon size={20} className="text-indigo-600 transition-transform duration-300 group-hover:-rotate-12" />
+                            )}
+                        </div>
+                    </button>
                     <ul className='flex ml-auto items-center space-x-2'>
                         {navItems.map((item)=>
                         item.active?(
@@ -69,7 +98,7 @@ function Header() {
                                         relative px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ease-out
                                         ${hoveredItem === item.name 
                                             ? 'text-white shadow-lg scale-105 transform bg-gradient-to-r from-blue-500 to-purple-600' 
-                                            : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
+                                            : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                                         }
                                         before:absolute before:inset-0 before:rounded-full 
                                         before:bg-gradient-to-r before:from-blue-500 before:to-purple-600
