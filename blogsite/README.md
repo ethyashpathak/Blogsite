@@ -70,13 +70,15 @@ We love contributors! Here's how you can help make BlogSite even better:
 5. Open a Pull Request
 
 ## 📋 Roadmap
-- [ ] Dark mode support
+- [x] Dark mode support
 - [ ] Social media sharing
 - [ ] Comment system
 - [ ] Tags and categories
 - [ ] Advanced search functionality
 - [ ] Email notifications
 - [ ] Mobile app
+
+> **New:** BlogSite now supports beautiful dark mode throughout the app! 🌙
 
 ## 🐛 Issues
 Found a bug? Have a suggestion? We'd love to hear from you! Please check our issues page and feel free to create a new issue.

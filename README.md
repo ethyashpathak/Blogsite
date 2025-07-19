@@ -70,7 +70,7 @@ We love contributors! Here's how you can help make BlogSite even better:
 5. Open a Pull Request
 
 ## 📋 Roadmap
-- [ ] Dark mode support
+- [x] Dark mode support
 - [ ] Social media sharing
 - [ ] Comment system
 - [ ] Tags and categories
