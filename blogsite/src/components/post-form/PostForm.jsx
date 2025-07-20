@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback,useState,useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import {Button,Input,Select,RTE} from '..';
 import appwriteService from '../../appwrite/config';
@@ -24,6 +24,23 @@ export default function PostForm({ post }) {
 
     const navigate = useNavigate();
     const userData = useSelector((state) => state.auth.userData);
+    const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+ 
+             useEffect(() => {
+               const observer = new MutationObserver(() => {
+                 setTheme(localStorage.getItem("theme") || "light");
+               });
+
+               observer.observe(document.documentElement, {
+                 attributes: true,
+                 attributeFilter: ["class"],
+              });
+
+               return () => observer.disconnect();
+             }, []);
+    
+
 
     const submit = async (data) => {
         if (post) {
@@ -93,7 +110,10 @@ export default function PostForm({ post }) {
                 />
                 <div className="mb-4">
                     <label className="block mb-1 pl-1 text-gray-700 dark:text-gray-200">Content :</label>
-                    <RTE name="content" control={control} defaultValue={getValues("content")} className="bg-white dark:bg-slate-800 text-black dark:text-white border border-gray-200 dark:border-gray-700 rounded-lg" />
+                    <RTE name="content" control={control} defaultValue={getValues("content")} className="bg-white dark:bg-slate-800 text-black dark:text-white border border-gray-200 dark:border-gray-700 rounded-lg" 
+                    //isDark={localStorage.getItem("theme") === "dark"}
+                    theme={theme}
+                     />
                 </div>
             </div>
             <div className="w-1/3 px-2">
