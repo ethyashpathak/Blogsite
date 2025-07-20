@@ -95,14 +95,14 @@ function Header() {
                                     onMouseEnter={() => setHoveredItem(item.name)}
                                     onMouseLeave={() => setHoveredItem(null)}
                                     className={`
-                                        relative px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ease-out
+                                        relative px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-500 ease-out
                                         ${hoveredItem === item.name 
-                                            ? 'text-white shadow-lg scale-105 transform bg-gradient-to-r from-blue-500 to-purple-600' 
+                                            ? 'text-white shadow-2xl scale-110 rotate-2 transform bg-gradient-to-r from-blue-500 to-purple-600 ring-4 ring-purple-300/30' 
                                             : 'text-gray-500 hover:text-gray-900 hover:bg-gray-100'
                                         }
                                         before:absolute before:inset-0 before:rounded-full 
                                         before:bg-gradient-to-r before:from-blue-500 before:to-purple-600
-                                        before:opacity-0 before:transition-opacity before:duration-300
+                                        before:opacity-0 before:transition-opacity before:duration-500
                                         ${hoveredItem === item.name ? 'before:opacity-100' : ''}
                                     `}
                                 >
