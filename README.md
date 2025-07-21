@@ -48,7 +48,7 @@ A modern, feature-rich blogging platform built for writers who want to focus on 
    yarn dev
    ```
 
-Visit [http://localhost:3000](http://localhost:3000) and start writing! 🎉
+Visit [(https://blogsite-six-beige.vercel.app/)](https://blogsite-six-beige.vercel.app/) and start writing! 🎉
 
 ## 🛠️ Built With
 - [React](https://react.dev/) – The foundation of our user interface
