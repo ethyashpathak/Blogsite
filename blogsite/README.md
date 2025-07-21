@@ -58,8 +58,8 @@ Visit [http://localhost:3000](http://localhost:3000) and start writing! 🎉
 - [Vite](https://vitejs.dev/) – Lightning-fast development experience
 
 ## 📸 Screenshots
-![Home Page](assets/HomePage.png)
-![Post Editor](assets/Add-Posts.png)
+![Home Page](public/HomePage.png)
+![Post Editor](public/Add-Posts.png)
 
 ## 🤝 Contributing
 We love contributors! Here's how you can help make BlogSite even better:
